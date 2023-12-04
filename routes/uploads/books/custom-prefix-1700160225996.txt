@@ -1,0 +1,10 @@
+CSS Cascade Layers Tutorial #4 - Importing Into Layers
+
+-  Import CSS files using 'import' followed by the file path.
+-  Organize imported styles into layers for better management.
+-  Specify the layer to which an import belongs by adding a layer rule in parentheses.
+-  Keep CSS file imports in the order of their corresponding layers for clarity.
+-  Import CSS files using 'import' and assign them to specific layers.
+-  Organize third-party CSS libraries into layers to avoid conflicts.
+-  Import third-party CSS files with 'at import' and specify the layer.
+-  Cascade layers provide flexibility for managing styles in your project.
