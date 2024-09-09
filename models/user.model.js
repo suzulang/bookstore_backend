@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
     },
     bio: {
         type: String,
-        default: "Life is a symphony of moments, and I approach each note with gratitude and enthusiasm. Guided by the belief that kindness is a universal language, I aim to uplift those around me and contribute to a world where innovation and empathy coexist."
+        default: "默认个人简介"
     },
     isAdmin: {
         type: Boolean,
