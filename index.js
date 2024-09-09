@@ -6,6 +6,7 @@ import booksRouter from "./routes/books.route.js";
 import UsersRouter from "./routes/profile.route.js";
 import { configDotenv } from "dotenv";
 import { ResultError } from "./utils/resultData.js";
+import cartRouter from "./routes/cart.route.js";
 
 configDotenv()
 
@@ -29,6 +30,7 @@ app.use(json())
 app.use('/api/auth', authRouter)
 app.use('/api/books', booksRouter)
 app.use('/api/profile', UsersRouter)
+app.use('/api/cart', cartRouter)
 
 app.all('*', (req, res, next) => {
     next(ResultError("error", 404, 'Not Found ' + req.originalUrl));

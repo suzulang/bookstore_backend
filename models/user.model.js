@@ -51,8 +51,8 @@ userSchema.virtual('books', {
 
 
 let validateRegister = [
-    body('firstName').notEmpty().withMessage('empty').isLength({min : 2}).withMessage('less than 2 characters'),
-    body('lastName').notEmpty().withMessage('empty').isLength({min : 2}).withMessage('less than 2 characters'),
+    body('firstName').notEmpty().withMessage('empty').isLength({min : 1}).withMessage('less than 1 characters'),
+    body('lastName').notEmpty().withMessage('empty').isLength({min : 1}).withMessage('less than 1 characters'),
     body('email').notEmpty().withMessage('empty').isEmail().withMessage('not valid'),
     body('password').notEmpty().withMessage('empty').isLength({ min: 6 }).withMessage('less than 6 characters'),
 ]
@@ -68,8 +68,8 @@ let validatechangePassword = [
 ]
 
 let validateUserUpdate = [
-    body('firstName').optional({checkFalsy: true}).isLength({min : 2}).withMessage('less than 2 characters'),
-    body('lastName').optional({checkFalsy: true}).isLength({min : 2}).withMessage('less than 2 characters'),
+    body('firstName').optional({checkFalsy: true}).isLength({min : 1}).withMessage('less than 1 characters'),
+    body('lastName').optional({checkFalsy: true}).isLength({min : 1}).withMessage('less than 1 characters'),
     body('bio').optional({checkFalsy: true}).isLength({min : 2, max: 250}).withMessage('less than 2 characters or more than 250 characters'),
     body('email').optional({checkFalsy: true}).notEmpty().withMessage('empty').isEmail().withMessage('not valid'),
 ]
