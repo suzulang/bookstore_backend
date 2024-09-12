@@ -1,7 +1,7 @@
 import { Router } from "express";
 import multer from "multer";
 
-import {addBook,deleteBook,editBookById,getAllBooks,getBookById,getBooks, updateBookPhoto} from "../controllers/books.controller.js";
+import {addBook,deleteBook,editBookById,getAllBooks,getBookById,getBooks, updateBookPhoto, searchBooks} from "../controllers/books.controller.js";
 import {checkToken, isAdmin} from "../middlewares/verifyAuth.js";
 import CheckId from "../middlewares/checkId.js";
 import { validateBook, validateUpdateBook } from "../models/book.model.js";
@@ -35,6 +35,9 @@ router.route('/')
 
 router.route('/admin')
     .get(isAdmin, getAllBooks);
+
+router.route('/search')
+    .get(searchBooks);
 
 router.route('/:id')
     .get(CheckId, checkToken, getBookById)

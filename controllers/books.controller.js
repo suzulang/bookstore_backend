@@ -173,6 +173,21 @@ const updateBookPhoto = asyncHandler(async (req, res) => {
     return res.status(403).json(ResultError('fail', 403, "Not are admin"))
 })
 
+const searchBooks = asyncHandler(async (req, res) => {
+  const { keyword } = req.query;
+  if (!keyword) {
+    return res.status(400).json(ResultError("fail", 400, "搜索关键词不能为空"));
+  }
 
+  const books = await Book.find(
+    { 
+      title: { $regex: keyword, $options: 'i' },
+      status: "public"
+    },
+    { '__v': false }
+  ).populate('user', ["-password", "-__v"]);
 
-export {addBook, getBooks, getAllBooks, getBookById, editBookById, deleteBook, updateBookPhoto}
+  res.status(200).json(ResultData({ books }));
+});
+
+export {addBook, getBooks, getAllBooks, getBookById, editBookById, deleteBook, updateBookPhoto, searchBooks}
